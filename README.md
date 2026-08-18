@@ -49,14 +49,18 @@ merging them just because both answer "what's special about today."
 
 ## Collision risk with ovos-skill-holidays
 
-Real (not theoretical) overlap case: "Sankt Hans" is a Danish public
-holiday (23 June) whose name contains "Hans", an ordinary given name
-with its own name day. See `ovos-skill-holidays`' README for the full
-analysis; the resolution from this skill's side is that its "when is
-X" / "who has a name day" intents require the explicit anchor word
-"navnedag" in the utterance and match an open `{name}` slot - so
-"hvornår har Hans navnedag" only ever routes here, never to holidays,
-regardless of any overlap in what the word "Hans" could mean.
+A genuinely verified overlap case (an earlier draft used an invented
+Danish example - "Sankt Hans" - that turned out not to actually be
+tracked by the `holidays` library at all; see `ovos-skill-holidays`'
+README for the correction): Finland's official "flag days"
+(liputuspäivät) are tracked by that library and are genuinely named
+after real people, e.g. "Mikael Agricolan päivä" - and "Mikael" is an
+ordinary Finnish given name with its own name day. The resolution
+from this skill's side is that its "when is X" / "who has a name day"
+intents require an explicit anchor word ("navnedag" or the equivalent
+per locale) in the utterance and match an open `{name}` slot - so a
+plain "when is Mikael's name day" only ever routes here, never to
+holidays, regardless of what "Mikael" could otherwise mean.
 
 ## Open questions (resolve before implementing)
 
