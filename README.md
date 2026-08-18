@@ -47,6 +47,17 @@ sourcing, different maintenance burden, different failure modes -
 worth keeping the skills' scopes narrow and separate rather than
 merging them just because both answer "what's special about today."
 
+## Collision risk with ovos-skill-holidays
+
+Real (not theoretical) overlap case: "Sankt Hans" is a Danish public
+holiday (23 June) whose name contains "Hans", an ordinary given name
+with its own name day. See `ovos-skill-holidays`' README for the full
+analysis; the resolution from this skill's side is that its "when is
+X" / "who has a name day" intents require the explicit anchor word
+"navnedag" in the utterance and match an open `{name}` slot - so
+"hvornår har Hans navnedag" only ever routes here, never to holidays,
+regardless of any overlap in what the word "Hans" could mean.
+
 ## Open questions (resolve before implementing)
 
 - Which locales to launch with in v1 - probably da-dk, sv-se, fi-fi
